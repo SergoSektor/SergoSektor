@@ -4,10 +4,6 @@
 
 <h1 align="center">SERGO SEKTOR</h1>
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SergoSektor&show_icons=true&theme=dark&bg_color=000000&hide_border=true&title_color=ffffff&text_color=ffffff&icon_color=ffffff&include_all_commits=true&count_private=true" alt="GitHub Stats"/>
-</div>
-
 ---
 
 ### <div align="center"><img src="assets/kagune.svg" width="20"/> ПОСЛЕДНИЕ ПРОЕКТЫ</div>
