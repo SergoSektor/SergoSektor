@@ -1,13 +1,48 @@
 <svg width="800" height="120" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="glitchGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+    <filter id="glitch" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  
   <rect width="800" height="120" fill="black"/>
-  <g stroke="white" stroke-width="3">
-    <line x1="50" y1="20" x2="750" y2="20"/>
-    <line x1="100" y1="60" x2="700" y2="60" stroke-dasharray="5,5"/>
-    <line x1="150" y1="100" x2="650" y2="100"/>
-    <line x1="50" y1="20" x2="150" y2="100" stroke-width="2"/>
-    <line x1="750" y1="20" x2="650" y2="100" stroke-width="2"/>
+  
+  <g stroke="white" stroke-width="3" stroke-linecap="square">
+    <line x1="50" y1="20" x2="750" y2="20">
+      <animate attributeName="x2" values="750;755;750;745;750" dur="0.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="100" y1="60" x2="700" y2="60" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;10;0" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="150" y1="100" x2="650" y2="100">
+      <animate attributeName="opacity" values="1;0.3;1" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <line x1="50" y1="20" x2="150" y2="100" stroke-width="2">
+      <animate attributeName="y2" values="100;102;100;98;100" dur="0.9s" repeatCount="indefinite"/>
+    </line>
+    <line x1="750" y1="20" x2="650" y2="100" stroke-width="2">
+      <animate attributeName="y2" values="100;98;100;102;100" dur="0.9s" repeatCount="indefinite"/>
+    </line>
   </g>
-  <text x="400" y="70" text-anchor="middle" fill="white" font-family="monospace" font-size="40">1000-7
-    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  
+  <text x="400" y="70" text-anchor="middle" fill="white" font-family="'Courier New', monospace" font-size="40" font-weight="900" filter="url(#glitch)">
+    1000-7
+    <animate attributeName="opacity" values="1;0.8;1;0.9;1" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="white;#aaa;white" dur="2s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Glitch effect overlays -->
+  <text x="402" y="72" text-anchor="middle" fill="cyan" font-family="'Courier New', monospace" font-size="40" font-weight="900" opacity="0.3">
+    1000-7
+    <animate attributeName="x" values="402;405;402;399;402" dur="0.3s" repeatCount="indefinite"/>
+  </text>
+  <text x="398" y="68" text-anchor="middle" fill="magenta" font-family="'Courier New', monospace" font-size="40" font-weight="900" opacity="0.3">
+    1000-7
+    <animate attributeName="y" values="68;70;68;66;68" dur="0.4s" repeatCount="indefinite"/>
   </text>
 </svg>
