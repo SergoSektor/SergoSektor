@@ -1,13 +1,40 @@
 <svg width="800" height="40" viewBox="0 0 800 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="scanlines">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="1" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  
   <rect width="800" height="40" fill="black"/>
-  <g stroke="white" stroke-width="2">
+  
+  <g stroke="white" stroke-width="2" stroke-linecap="square" filter="url(#scanlines)">
     <line x1="0" y1="5" x2="800" y2="5">
-      <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/>
     </line>
-    <line x1="50" y1="15" x2="750" y2="15" stroke-dasharray="4,4"/>
-    <line x1="100" y1="25" x2="700" y2="25"/>
-    <line x1="0" y1="40" x2="800" y2="40"/>
-    <line x1="200" y1="0" x2="300" y2="40" stroke-width="1.5"/>
-    <line x1="500" y1="0" x2="600" y2="40" stroke-width="1.5"/>
+    <line x1="50" y1="15" x2="750" y2="15" stroke-dasharray="4,4">
+      <animate attributeName="stroke-dashoffset" values="0;8;0" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="100" y1="25" x2="700" y2="25">
+      <animate attributeName="x2" values="700;705;700;695;700" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="40" x2="800" y2="40">
+      <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="200" y1="0" x2="300" y2="40" stroke-width="1.5">
+      <animate attributeName="x1" values="200;202;200;198;200" dur="0.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="500" y1="0" x2="600" y2="40" stroke-width="1.5">
+      <animate attributeName="x2" values="600;602;600;598;600" dur="0.8s" repeatCount="indefinite"/>
+    </line>
   </g>
+  
+  <!-- Digital noise effect -->
+  <rect width="800" height="40" fill="url(#noisePattern)" opacity="0.1"/>
+  <defs>
+    <pattern id="noisePattern" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="black"/>
+      <path d="M0 0L4 4M4 0L0 4" stroke="white" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
 </svg>
